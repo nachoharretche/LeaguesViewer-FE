@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+.mat-stroked-button{
+    background-color: #0089ff;
+    color: white;
+}
+
+.mat-select-arrow{
+    color: white;
+}
+
+.textStyle{
+    font-family: Arial, Helvetica, sans-serif !important;
+    text-align: center !important;
+}
+
+body{
+    background-image: url("./assets/images/bandera-nacional1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x:hidden;
+}
+
+.textBackground{
+    text-shadow: 
+        -1px -1px 0px white,
+         0px -1px 0px white,
+         1px -1px 0px white,
+        -1px  0px 0px white,
+         1px  0px 0px white,
+        -1px  1px 0px white,
+         0px  1px 0px white,
+         1px  1px 0px white,
+        
+        -2px -2px 0px white,
+        -1px -2px 0px white,
+         0px -2px 0px white,
+         1px -2px 0px white,
+         2px -2px 0px white,
+         2px -1px 0px white,
+         2px  0px 0px white,
+         2px  1px 0px white,
+         2px  2px 0px white,
+         1px  2px 0px white,
+         0px  2px 0px white,
+        -1px  2px 0px white,
+        -2px  2px 0px white,
+        -2px  1px 0px white,
+        -2px  0px 0px white,
+        -2px -1px 0px white;
+}

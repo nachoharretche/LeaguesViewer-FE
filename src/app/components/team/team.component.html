@@ -1,0 +1,16 @@
+<div>
+  <div class="textBackground" *ngIf="team">
+    <label>Fundación: </label>
+    
+    <label>{{team.showFoundation()}}</label>
+    <br>
+    <label>Estadio: </label>
+    
+    <label>{{team.stadium}}</label>
+    <br>
+    <br>
+    <div>
+      <app-player [team]="team"></app-player>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div>
+  <div class="textBackground" style="margin-left: 35%; width: 370px;" *ngIf="league !== null">
+      <label>Fundación: </label>
+      <label>{{leagueFoundation}}</label>
+      <br>
+      <label>Organizador: </label>
+      <label>{{league.organizer}}</label>
+      <br><br>
+      <div *ngIf="teams.length > 0">
+        <mat-form-field>
+          <mat-select style="width:270px;" (selectionChange)="onTeamChange()" [(ngModel)]="selectedTeam" #singleSelect required>
+            <mat-option *ngFor="let team of teams" [value]="team">
+              {{ team.name | uppercase}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div *ngIf="teams.length === 0">
+        <p>No hay equipos registrados para esta liga</p>
+      </div>
+  </div>
+  <br>
+  <div>
+    <app-team [team]="selectedTeam" *ngIf="selectedTeam != null"> </app-team>
+  </div>
+</div>

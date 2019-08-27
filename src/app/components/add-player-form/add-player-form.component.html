@@ -1,0 +1,48 @@
+<div *ngIf="teamId">
+  <mat-dialog-content [formGroup]="addPlayerForm">
+      <div>
+        <h2 mat-dialog-title>Agregar Jugador</h2>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Nombre Completo" formControlName="name" 
+          [ngClass]="{ 'is-invalid': submitted && f.name.errors }" autofocus>
+        </mat-form-field>
+        <div *ngIf="submitted && f.name.errors">
+          <mat-error class="textStyle" *ngIf="f.name.errors.required">Debe ingresar el nombre completo</mat-error>  
+        </div>
+      </div>
+      <div>
+        <mat-form-field>
+          <label style="margin-bottom: 10px;">Edad: </label>
+          <input matInput type="number" formControlName="age" 
+          [ngClass]="{ 'is-invalid': submitted && f.age.errors }" min="16" max="55">
+        </mat-form-field>
+        <div *ngIf="submitted && f.age.errors">
+          <mat-error class="textStyle" *ngIf="f.age.errors.required">Debe ingresar la edad</mat-error>  
+          <mat-error class="textStyle" *ngIf="f.age.errors.min">La edad no puede ser menor a 16 años</mat-error>  
+          <mat-error class="textStyle" *ngIf="f.age.errors.max">La edad no puede ser mayor a 55 años</mat-error>  
+        </div>
+      </div>
+      <div>
+        <mat-form-field>
+          <label style="margin-bottom: 10px;">Número de camiseta: </label>
+          <input matInput type="number" formControlName="shirtNumber"
+          [ngClass]="{ 'is-invalid': submitted && f.shirtNumber.errors }"
+          min="1" max="99">
+        </mat-form-field>
+        <div *ngIf="submitted && f.shirtNumber.errors">
+          <mat-error class="textStyle" *ngIf="f.shirtNumber.errors.required">Debe ingresar el número de camiseta
+          </mat-error>  
+          <mat-error class="textStyle" *ngIf="f.shirtNumber.errors.min">El número de camiseta no puede ser menor a 1
+          </mat-error>  
+          <mat-error class="textStyle" *ngIf="f.shirtNumber.errors.max">El número de camiseta no puede ser mayor a 99
+          </mat-error>
+        </div>
+      </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-stroked-button mat-danger (click)="close()" style="margin-right: 10px;">Cancelar</button>
+    <button mat-stroked-button (click)="savePlayer()" >Agregar</button>
+  </mat-dialog-actions>
+  
+</div>

@@ -1,0 +1,37 @@
+<div style="margin-bottom: 20px;">
+  <label class="textStyle textBackground" style="padding-right: 75%;">Jugadores:</label>
+</div>
+<div class="mat-elevation-z8" *ngIf="team != null && players.length > 0">
+  <br/>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="fullName">
+      <mat-header-cell *matHeaderCellDef> Nombre completo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.fullName}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="age">
+      <mat-header-cell *matHeaderCellDef> Edad </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>>
+    </ng-container>
+    <ng-container matColumnDef="shirtNumber">
+      <mat-header-cell *matHeaderCellDef> Número de camiseta </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.shirtNumber}} </mat-cell>>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>  
+  </mat-table>
+  <mat-paginator 
+    #paginator 
+    [length]="players.length"
+    [pageSize]="pageSize"
+    [pageIndex]="currentPage"
+    (page)="pageEvent = handlePage($event)"
+    [pageSizeOptions]="[5, 10, 25, 40]">
+  </mat-paginator>
+</div>
+<div class="mat-elevation-z8" *ngIf="team && players.length === 0">
+  <p>No hay jugadores registrados en el equipo.</p>
+</div>
+<div *ngIf="team">
+  <br>
+  <button mat-stroked-button (click)="showPlayerForm()">Agregar Jugador</button>
+</div>

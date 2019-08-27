@@ -1,0 +1,14 @@
+<div style="text-align: center">
+  <mat-form-field class="textBackground">
+    <mat-select class="textStyle textBackground" style="width:270px;" (selectionChange)="onLeagueChange()" [(ngModel)]="selectedLeague" #singleSelect required>
+      <mat-option *ngFor="let league of leagues" [value]="league">
+        {{ league.name }} 
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <br>
+  <div>
+    <app-league-info [league]="selectedLeague" *ngIf="selectedLeague != null"></app-league-info>
+  </div>
+</div>
